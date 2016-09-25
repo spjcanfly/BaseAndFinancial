@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\spj\\Desktop\\p2p\\ViewPagerIndicator\\build\\intermediates\\res\\merged\\debug\\color\\vpi__light_theme.xml",
+        "source": "C:\\Users\\spj\\Desktop\\p2p\\ViewPagerIndicator\\src\\main\\res\\color\\vpi__light_theme.xml"
+    },
+    {
+        "merged": "D:\\workspace_android_as\\P2PInvest0520\\ViewPagerIndicator\\build\\intermediates\\res\\merged\\debug\\color\\vpi__light_theme.xml",
+        "source": "D:\\workspace_android_as\\P2PInvest0520\\ViewPagerIndicator\\src\\main\\res\\color\\vpi__light_theme.xml"
+    },
+    {
+        "merged": "E:\\androidstudio-exersice\\P2P\\ViewPagerIndicator_lib\\build\\intermediates\\res\\merged\\debug\\color\\vpi__light_theme.xml",
+        "source": "E:\\androidstudio-exersice\\P2P\\ViewPagerIndicator_lib\\src\\main\\res\\color\\vpi__light_theme.xml"
+    },
+    {
+        "merged": "E:\\androidstudio-exersice\\P2P\\ViewPagerIndicator_lib\\build\\intermediates\\res\\merged\\debug\\color\\vpi__dark_theme.xml",
+        "source": "E:\\androidstudio-exersice\\P2P\\ViewPagerIndicator_lib\\src\\main\\res\\color\\vpi__dark_theme.xml"
+    },
+    {
+        "merged": "C:\\Users\\spj\\Desktop\\p2p\\ViewPagerIndicator\\build\\intermediates\\res\\merged\\debug\\color\\vpi__dark_theme.xml",
+        "source": "C:\\Users\\spj\\Desktop\\p2p\\ViewPagerIndicator\\src\\main\\res\\color\\vpi__dark_theme.xml"
+    },
+    {
+        "merged": "D:\\workspace_android_as\\P2PInvest0520\\ViewPagerIndicator\\build\\intermediates\\res\\merged\\debug\\color\\vpi__dark_theme.xml",
+        "source": "D:\\workspace_android_as\\P2PInvest0520\\ViewPagerIndicator\\src\\main\\res\\color\\vpi__dark_theme.xml"
+    }
+]

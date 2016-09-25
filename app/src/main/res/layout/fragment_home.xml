@@ -1,0 +1,141 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:jiege="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <include layout="@layout/common_top"/>
+
+    <com.example.spj.p2p.ui.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/vp_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <com.viewpagerindicator.CirclePageIndicator
+                    android:id="@+id/circle_home_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:layout_marginBottom="10dp"
+                    />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_home_product"
+                android:layout_marginTop="10dp"
+                android:drawablePadding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/recommend"
+                android:text="乐享活180天计划第一期"
+                android:textSize="25dp"
+                android:textColor="@color/product_detail_common"
+                />
+
+            <LinearLayout
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="本息保障"
+                    style="@style/homefragment_tv_small" />
+
+                <TextView
+                    android:text="高额收益"
+                    style="@style/homefragment_tv_small" />
+
+                <TextView
+                    android:text="每日计息"
+                    style="@style/homefragment_tv_small" />
+
+            </LinearLayout>
+
+            <com.example.spj.p2p.ui.RoundProgress
+                android:id="@+id/rp_home_progress"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                jiege:max="100"
+                jiege:textColor="@color/my_title_bg"
+                jiege:progress="70"
+                jiege:textSize="20sp"
+                jiege:roundWidth="10dp"
+                jiege:roundProgressColor="@color/product_red_common"
+                jiege:roundColor="@color/home_back_unselected"
+                />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="预期年利率"
+                    android:textColor="@color/product_detail_common"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_home_yearrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10% + 2%"
+                    android:textColor="@color/product_detail_common"
+                    android:textSize="20sp"
+
+                    />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_home_join"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/home"
+                android:text="立即加入"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/guarantee_icon"
+                android:drawablePadding="3dp"
+                android:text="风险保证金由光大银行监管"
+                android:textColor="@color/home_back_unselected"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </com.example.spj.p2p.ui.MyScrollView>
+
+</LinearLayout>
