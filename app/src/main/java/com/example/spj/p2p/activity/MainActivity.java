@@ -1,18 +1,16 @@
 package com.example.spj.p2p.activity;
 
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.KeyEvent;
+import android.widget.FrameLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.spj.p2p.R;
-import com.example.spj.p2p.common.AppManager;
 import com.example.spj.p2p.common.BaseFragment;
 import com.example.spj.p2p.fragment.HomeFragment;
 import com.example.spj.p2p.fragment.InvestFragment;
@@ -22,13 +20,22 @@ import com.example.spj.p2p.fragment.MoreFragment;
 import java.util.ArrayList;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends BaseActivity {
 
+
+    @Bind(R.id.fl_main_content)
+    FrameLayout flMainContent;
+    @Bind(R.id.rb_bottom_home)
+    RadioButton rbBottomHome;
+    @Bind(R.id.rb_bottom_invest)
+    RadioButton rbBottomInvest;
+    @Bind(R.id.rb_bottom_me)
+    RadioButton rbBottomMe;
+    @Bind(R.id.rb_bottom_settings)
+    RadioButton rbBottomSettings;
     @Bind(R.id.rg_main)
     RadioGroup rgMain;
-
     private ArrayList<BaseFragment> fragments;
     private Fragment fragment;
     private int position;
@@ -44,25 +51,26 @@ public class MainActivity extends FragmentActivity {
         }
     };
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
 
+    @Override
+    protected void initData() {
         initFragment();
 
         setListener();
+    }
 
-        //将当前的activity添加到栈管理中
-        AppManager.getInstance().addActivity(this);
+    @Override
+    protected void initTitle() {
 
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
     }
 
     //监听fragment的切换
     private void setListener() {
-        Log.e("TAG", "1111111111111");
-        Log.e("TAG", "rgmain" + rgMain);
         rgMain.setOnCheckedChangeListener(new MyOnCheckedChangeListener());
         //默认选择第一个界面
         rgMain.check(R.id.rb_bottom_home);
@@ -82,22 +90,22 @@ public class MainActivity extends FragmentActivity {
         if (keyCode == event.KEYCODE_BACK) {
             if (isExit) {
                 Toast.makeText(MainActivity.this, "再按一次退出", Toast.LENGTH_SHORT).show();
-                isExit =false;
+                isExit = false;
                 handler.sendEmptyMessageDelayed(0, 2000);
                 return true;
             }
 
         }
-        return super.onKeyDown(keyCode,event);
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.unbind(this);
         handler.removeCallbacksAndMessages(null);
         handler = null;
     }
+
 
     private class MyOnCheckedChangeListener implements RadioGroup.OnCheckedChangeListener {
 

@@ -19,6 +19,10 @@ public abstract class BaseActivity extends FragmentActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //此坑下次要注意塞
+        setContentView(getLayoutId());
+
         ButterKnife.bind(this);
 
         //将当前的activity添加到自己的栈空间中

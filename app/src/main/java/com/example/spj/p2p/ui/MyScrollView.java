@@ -54,7 +54,6 @@ public class MyScrollView extends ScrollView{
             case MotionEvent.ACTION_DOWN :
                 downX = lastX=evenX;
                 downY = lastY=evenY;
-                Log.e("TAG", "lastY__________down"+lastY);
                 break;
             case MotionEvent.ACTION_MOVE :
                 int totalX = Math.abs(evenX-downX);
@@ -62,7 +61,6 @@ public class MyScrollView extends ScrollView{
                 if(totalY > totalX && totalY >10) {
                     return true;
                 }
-                Log.e("TAG", "lastY__________up"+lastY);
                 break;
             case MotionEvent.ACTION_UP:
                 break;
