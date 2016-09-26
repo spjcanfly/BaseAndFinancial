@@ -11,6 +11,7 @@ import com.example.spj.p2p.common.BaseFragment;
 import com.loopj.android.http.RequestParams;
 
 import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +25,8 @@ public class MoreFragment extends BaseFragment {
     TextView tvTopTitle;
     @Bind(R.id.iv_top_settings)
     ImageView ivTopSettings;
+    @Bind(R.id.tv_say)
+    TextView tvSay;
 
 
     @Override
@@ -38,7 +41,12 @@ public class MoreFragment extends BaseFragment {
 
     @Override
     protected void initData(String content) {
-
+//        //实现跑马灯的效果一：
+//        tvSay.setFocusable(true);
+//        tvSay.setFocusableInTouchMode(true);
+//        tvSay.requestFocus();
+        //实现跑马灯的效果二：有利于多处使用跑马灯
+//        自定义textview
     }
 
     @Override
@@ -53,4 +61,10 @@ public class MoreFragment extends BaseFragment {
         return R.layout.fragment_more;
     }
 
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
+    }
 }

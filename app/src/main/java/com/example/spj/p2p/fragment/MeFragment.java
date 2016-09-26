@@ -16,8 +16,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.spj.p2p.R;
+import com.example.spj.p2p.activity.BarCharActivity;
 import com.example.spj.p2p.activity.BaseActivity;
+import com.example.spj.p2p.activity.ChongZhiActivity;
+import com.example.spj.p2p.activity.LineCharActivity;
 import com.example.spj.p2p.activity.LoginActivity;
+import com.example.spj.p2p.activity.PieChartActivity;
+import com.example.spj.p2p.activity.TiXianActivity;
+import com.example.spj.p2p.activity.ToggleButtonActivity;
 import com.example.spj.p2p.activity.UserInfoActivity;
 import com.example.spj.p2p.bean.User;
 import com.example.spj.p2p.common.BaseFragment;
@@ -103,14 +109,14 @@ public class MeFragment extends BaseFragment {
         textView11.setText(user.UF_ACC);
 
         //如果在本地存储了用户头像，则优先从本地获取
-        if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             File externalFilesDir = this.getActivity().getExternalFilesDir(null);
-            File file = new File(externalFilesDir,"icon.png");
-            if(file.exists()){
+            File file = new File(externalFilesDir, "icon.png");
+            if (file.exists()) {
                 //将文件中的图片数据加载到内存中，生成一个Bitmap对象
                 Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                 imageView1.setImageBitmap(bitmap);
-                return ;
+                return;
             }
         }
 
@@ -144,7 +150,7 @@ public class MeFragment extends BaseFragment {
                     public void onClick(DialogInterface dialog, int which) {
 //                        Toast.makeText(MeFragment.this.getActivity(), "启动登录的界面", Toast.LENGTH_SHORT).show();
                         //启动登录操作的activity
-                        ((BaseActivity)MeFragment.this.getActivity()).goToActivity(LoginActivity.class,null);
+                        ((BaseActivity) MeFragment.this.getActivity()).goToActivity(LoginActivity.class, null);
                     }
                 })
                 .setCancelable(false)
@@ -163,11 +169,37 @@ public class MeFragment extends BaseFragment {
         return R.layout.fragment_me;
     }
 
-
-    @OnClick(R.id.iv_top_settings)
-    public void onClick() {
-        ((BaseActivity)this.getActivity()).goToActivity(UserInfoActivity.class,null);
+    @OnClick({R.id.iv_top_settings, R.id.recharge, R.id.withdraw, R.id.ll_touzi, R.id.ll_touzi_zhiguan, R.id.ll_zichang, R.id.ll_zhanquan})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            //点击设置
+            case R.id.iv_top_settings:
+                ((BaseActivity) this.getActivity()).goToActivity(UserInfoActivity.class, null);
+                break;
+            //点击充值
+            case R.id.recharge:
+                ((BaseActivity) this.getActivity()).goToActivity(ChongZhiActivity.class, null);
+                break;
+            //点击提现
+            case R.id.withdraw:
+                ((BaseActivity) this.getActivity()).goToActivity(TiXianActivity.class, null);
+                break;
+            //投资管理
+            case R.id.ll_touzi:
+                ((BaseActivity) this.getActivity()).goToActivity(LineCharActivity.class, null);
+                break;
+            //投资管理（直观）
+            case R.id.ll_touzi_zhiguan:
+                ((BaseActivity) this.getActivity()).goToActivity(BarCharActivity.class, null);
+                break;
+            //资产管理
+            case R.id.ll_zichang:
+                ((BaseActivity)this.getActivity()).goToActivity(PieChartActivity.class, null);
+                break;
+            //账户安全
+            case R.id.ll_zhanquan:
+                ((BaseActivity)this.getActivity()).goToActivity(ToggleButtonActivity.class, null);
+                break;
+        }
     }
-
-
 }
